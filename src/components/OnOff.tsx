@@ -5,7 +5,7 @@ type OnOffPropsType = {
     setState: (onState: boolean) => void
 }
 
-function OnOff({onState, setState}: OnOffPropsType) {
+export function OnOff({onState, setState}: OnOffPropsType) {
 
     const onStyle = {
         display: 'inline-block',
@@ -37,11 +37,9 @@ function OnOff({onState, setState}: OnOffPropsType) {
     }
 
     return (<div style={{display: 'flex', alignItems: 'center', width: '200px', margin: '20px auto', boxSizing: 'border-box'}}>
-            <button style={onStyle} onClick={() => setState(true)}>ON</button>
-            <button style={offStyle} onClick={() => setState(false)}>OFF</button>
+            <button style={onStyle} onClick={() => setState(onState)}>ON</button>
+            <button style={offStyle} onClick={() => setState(!onState)}>OFF</button>
             <span style={indicatorStyle}></span>
         </div>
     )
 }
-
-export default OnOff;

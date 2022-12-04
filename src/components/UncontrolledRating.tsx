@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import StarYellow from '../star-yellow.svg';
 import StarWhite from '../star-white.svg';
+import {RatingValueType} from './Rating';
 
 type RatingPropsType = {
+    defaultValue?: RatingValueType
+    onClick?: () => void
 }
 
 type StarType = {
@@ -12,7 +15,7 @@ type StarType = {
 }
 
 function UncontrolledRating(props: RatingPropsType) {
-    let [value, setValue] = useState(4)
+    let [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
 
     return (
         <ul style={{width: '200px', margin: '20px auto', padding: '0', boxSizing: 'border-box'}}>

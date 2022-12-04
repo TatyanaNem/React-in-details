@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 
 type OnOffPropsType = {
+    defaultOnMode?: boolean
     onChange: (onState: boolean) => void
 }
 
-function UncontrolledOnOff(props: OnOffPropsType) {
-    let [onState, setState] = useState(false)
+export function UncontrolledOnOff(props: OnOffPropsType) {
+    let [onState, setState] = useState(props.defaultOnMode ? props.defaultOnMode : false)
 
     const onStyle = {
         display: 'inline-block',
@@ -53,5 +54,3 @@ function UncontrolledOnOff(props: OnOffPropsType) {
         </div>
     )
 }
-
-export default UncontrolledOnOff;
